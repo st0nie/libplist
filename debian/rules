@@ -10,10 +10,13 @@ export QT_SELECT := 5
 
 include /usr/share/dpkg/default.mk
 
+# arm32 build; https://bugs.debian.org/1034553
+export _PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata__${DEB_HOST_ARCH_OS}_${DEB_HOST_MULTIARCH}
+
 PYVER=$(shell py3versions -vd)
 
 %:
-	dh $@ --with python3 --no-parallel
+	dh $@ --no-parallel
 
 override_dh_auto_configure:
 	dh_auto_configure -- PYTHON_VERSION=$(PYVER) PYTHON=python3 CYTHON=/usr/bin/cython3
@@ -28,16 +31,9 @@ override_dh_install:
 	rm -f $(CURDIR)/debian/tmp/usr/lib/python*/*-packages/plist.la
 	rm -f $(CURDIR)/debian/tmp/usr/lib/*/*.la
 	rm -f $(CURDIR)/debian/tmp/usr/lib/*/*.a
-	# Symlinks old names for compatibility
-	ln -s libplist-2.0.so debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/libplist.so
-	ln -s libplist-2.0.so.3 debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/libplist.so.3
-	ln -s libplist-2.0.so.3.3.0 debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/libplist.so.3.3.0
-	ln -s libplist++-2.0.so debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/libplist++.so
-	ln -s libplist++-2.0.so.3 debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/libplist++.so.3
-	ln -s libplist++-2.0.so.3.3.0 debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/libplist++.so.3.3.0
-	ln -s libplist++-2.0.pc debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/pkgconfig/libplist++.pc
-	ln -s libplist-2.0.pc debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/pkgconfig/libplist.pc
-
+	# Symlink old names for compatibility
+	#ln -s libplist++-2.0.pc debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/pkgconfig/libplist++.pc
+	#ln -s libplist-2.0.pc debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/pkgconfig/libplist.pc
 	# Continue with dh_install
 	dh_install
 

@@ -1,3 +1,73 @@
+libplist (2.6.0-2) unstable; urgency=medium
+
+  * debian/control: Use dh-sequence-python3.
+  * debian/rules: Drop --with python3 invocation.
+  * debian/control: Add missing build-dependency python3-setuptools
+    to provide the embedded distutils lookup. (Closes: #1080646)
+
+ -- Boyuan Yang <byang@debian.org>  Thu, 05 Sep 2024 23:25:32 -0400
+
+libplist (2.6.0-1) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Boyuan Yang <byang@debian.org>  Fri, 12 Jul 2024 18:19:08 -0400
+
+libplist (2.6.0-1~exp1) experimental; urgency=medium
+
+  * New upstream release.
+  * debian/control: Bump cython3 version requirement to (>= 3.0).
+  * debian/gbp.conf: Use minimal config ignore-branch = True.
+  * debian/patches/0001-configure.ac-Hardcode-version-for-now.patch:
+    Add hardcoded version string for now.
+  * debian/libplist-2.0-4.symbols: Add new symbols.
+
+ -- Boyuan Yang <byang@debian.org>  Mon, 08 Jul 2024 16:50:22 -0400
+
+libplist (2.4.0-1~exp1) experimental; urgency=medium
+
+  * New upstream release.
+  * debian/libplist-2.0-4.symbols: Refresh symbols.
+
+ -- Boyuan Yang <byang@debian.org>  Wed, 27 Mar 2024 11:25:39 -0400
+
+libplist (2.3.0-1~exp2) experimental; urgency=medium
+
+  * debian/libplist++-2.0-4.symbols: Update symbols according to the
+    buildd logs.
+
+ -- Boyuan Yang <byang@debian.org>  Mon, 31 Jul 2023 14:14:48 -0400
+
+libplist (2.3.0-1~exp1) experimental; urgency=medium
+
+  [ Helmut Grohne ]
+  * debian/rules: Fix arm32 FTCBFS: Export _PYTHON_SYSCONFIGDATA_NAME.
+    (Closes: #1034553)
+
+  [ Boyuan Yang ]
+  * New upstream release.
+  * Rename binary package following ABI breakage and SONAME bump:
+    + libplist3 => libplist-2.0-4
+    + libplist++3v5 => libplist-2.0-4
+  * Rename and update all .install and .symbol files.
+  * debian/rules: Stop providing library compatibility symlinks for now
+    to test package compatibility.
+  * debian/copyright: Update information.
+  * debian/control: Bump Standards-Version to 4.6.2.
+  * debian/control: Bump debhelper-compat to v13.
+  * debian/*.docs: Install AUTHORS file to all binary package, not just
+    the first binary package in debian/control.
+
+ -- Boyuan Yang <byang@debian.org>  Mon, 24 Jul 2023 16:21:45 -0400
+
+libplist (2.2.0-7) unstable; urgency=medium
+
+  [ Helmut Grohne ]
+  * debian/rules: Fix arm32 FTCBFS: Export _PYTHON_SYSCONFIGDATA_NAME.
+    (Closes: #1034553)
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sat, 20 Jan 2024 16:52:40 +0100
+
 libplist (2.2.0-6) unstable; urgency=medium
 
   [ Dylan Aïssi ]

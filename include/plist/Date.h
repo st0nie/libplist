@@ -24,7 +24,11 @@
 
 #include <plist/Node.h>
 #include <ctime>
+#ifdef _MSC_VER
+#include <winsock2.h>
+#else
 #include <sys/time.h>
+#endif
 
 namespace PList
 {
@@ -35,7 +39,7 @@ public :
     Date(Node* parent = NULL);
     Date(plist_t node, Node* parent = NULL);
     Date(const Date& d);
-    Date& operator=(Date& d);
+    Date& operator=(const Date& d);
     Date(timeval t);
     virtual ~Date();
 

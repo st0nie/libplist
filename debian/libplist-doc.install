@@ -1,1 +1,4 @@
 docs/html usr/share/doc/libplist/
+AUTHORS usr/share/doc/libplist-doc/
+NEWS usr/share/doc/libplist-doc/
+README.md usr/share/doc/libplist-doc/

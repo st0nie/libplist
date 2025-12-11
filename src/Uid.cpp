@@ -19,6 +19,7 @@
  */
 
 #include <cstdlib>
+#include "plist.h"
 #include <plist/Uid.h>
 
 namespace PList
@@ -37,7 +38,7 @@ Uid::Uid(const PList::Uid& i) : Node(PLIST_UID)
     plist_set_uid_val(_node, i.GetValue());
 }
 
-Uid& Uid::operator=(PList::Uid& i)
+Uid& Uid::operator=(const PList::Uid& i)
 {
     plist_free(_node);
     _node = plist_copy(i.GetPlist());

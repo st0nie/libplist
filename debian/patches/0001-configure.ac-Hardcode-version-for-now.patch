@@ -1,0 +1,21 @@
+From: Boyuan Yang <byang@debian.org>
+Date: Mon, 8 Jul 2024 16:46:25 -0400
+Subject: configure.ac: Hardcode version for now
+
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 67a05bb..d662d10 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -2,7 +2,7 @@
+ # Process this file with autoconf to produce a configure script.
+ 
+ AC_PREREQ(2.68)
+-AC_INIT([libplist], [m4_esyscmd(./git-version-gen $RELEASE_VERSION)], [https://github.com/libimobiledevice/libplist/issues], [], [https://libimobiledevice.org])
++AC_INIT([libplist], [2.6.0], [https://github.com/libimobiledevice/libplist/issues], [], [https://libimobiledevice.org])
+ AM_INIT_AUTOMAKE([dist-bzip2 no-dist-gzip check-news])
+ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES])
+ AC_CONFIG_SRCDIR([src/])
