@@ -5,6 +5,10 @@
 
 # see FEATURE AREAS in dpkg-buildflags(1)
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+# Force DWARF 4: the build chroot ships dwz 0.14 which cannot process
+# DWARF 5 .debug_addr sections emitted by GCC 12's default -gdwarf-5.
+export DEB_CFLAGS_MAINT_APPEND = -gdwarf-4
+export DEB_CXXFLAGS_MAINT_APPEND = -gdwarf-4
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed -Wl,-O1 -Wl,-z,defs
 export QT_SELECT := 5
 

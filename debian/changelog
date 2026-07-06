@@ -4,6 +4,9 @@ libplist (2.2.0-6deepin1) unstable; urgency=medium
     Python-3.12.patch: replace distutils with stdlib sysconfig module in
     m4/ax_python_devel.m4, fixing FTBFS with Python 3.12 where distutils
     was removed (PEP 632).
+  * debian/rules: force -gdwarf-4 via DEB_CFLAGS_MAINT_APPEND and
+    DEB_CXXFLAGS_MAINT_APPEND; the build chroot's dwz 0.14 cannot process
+    DWARF 5 .debug_addr sections emitted by GCC 12's default.
 
  -- jiabowen <jiabowen@uniontech.com>  Mon, 06 Jul 2026 16:45:59 +0800
 
