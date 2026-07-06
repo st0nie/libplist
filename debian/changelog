@@ -1,3 +1,12 @@
+libplist (2.2.0-6deepin1) unstable; urgency=medium
+
+  * Add debian/patches/0001-m4-replace-distutils-with-sysconfig-for-
+    Python-3.12.patch: replace distutils with stdlib sysconfig module in
+    m4/ax_python_devel.m4, fixing FTBFS with Python 3.12 where distutils
+    was removed (PEP 632).
+
+ -- jiabowen <jiabowen@uniontech.com>  Mon, 06 Jul 2026 16:45:59 +0800
+
 libplist (2.2.0-6) unstable; urgency=medium
 
   [ Dylan Aïssi ]
